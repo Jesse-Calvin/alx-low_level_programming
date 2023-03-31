@@ -1,26 +1,23 @@
-#include "main.h"
-/**
- *  * *_strncat - concatenates n bytes of two strings
- *   * @dest: pointer destination
- *    * @src: pointer source
- *     * @n: number of bytes
- *      * Return: void
- *      */
+#include <string.h>
+       #include <time.h>
+       #include <stdio.h>
 
-char *_strncat(char *dest, char *src, int n)
-{
+       int
+       main(int argc, char *argv[])
+       {
+       #define LIM 4000000
+           int j;
+           char p[LIM];
+           time_t base;
 
-		int dest_len, i;
+           base = time(NULL);
+           p[0] = '\0';
 
-			for (dest_len = 0; dest[dest_len] != '\0'; dest_len++)
-					;
+           for (j = 0; j < LIM; j++) {
+               if ((j % 10000) == 0)
+                   printf("%d %ld\n", j, (long) (time(NULL) - base));
+               strcat(p, "a");
+           }
+       }
 
-				for (i = 0; i < n && src[i] != '\0'; i++)
-							dest[dest_len + i] = src[i];
-
-					/*should end with a end of string char*/
-					dest[dest_len + i] = '\0';
-
-						return (dest);
-}
 
